@@ -1,0 +1,57 @@
+{
+    "CX_User": [{
+            "Username": "Calvin_Kwan",
+            "Flight": "CX173",
+            "Floor": 18,
+            "Gender": "M",
+            "Nickname": "Calvin",
+            "Room": "05",
+            "Title": "Mr"
+        },
+        {
+            "Username": "Kitson_Cheung",
+            "Flight": "CX6127",
+            "Floor": 5,
+            "Gender": "M",
+            "Nickname": "Kitson",
+            "Room": "03",
+            "Title": "Mr"
+        },
+        {
+            "Username": "Kwan_Chun_Long",
+            "Flight": "CX111",
+            "Floor": 18,
+            "Gender": "M",
+            "Nickname": "Long",
+            "Room": "05",
+            "Title": "Mr"
+        },
+        {
+            "Username": "Law_Mei_Ching",
+            "Flight": "CX111",
+            "Floor": 7,
+            "Gender": "F",
+            "Nickname": "Polly",
+            "Room": 87,
+            "Title": "Ms"
+        },
+        {
+            "Username": "Ma_Man_Ting",
+            "Flight": "CX173",
+            "Floor": 9,
+            "Gender": "F",
+            "Nickname": "Ting",
+            "Room": 14,
+            "Title": "Ms"
+        },
+        {
+            "Username": "Ng_Sin_Ching",
+            "Flight": "CX111",
+            "Floor": 4,
+            "Gender": "M",
+            "Nickname": "Mike",
+            "Room": "03",
+            "Title": "Mr"
+        }
+    ]
+}
