@@ -36,8 +36,8 @@ Resources:
         - arn:aws:iam::aws:policy/TranslateReadOnly
         - arn:aws:iam::aws:policy/ComprehendReadOnly
         - arn:aws:iam::aws:policy/AmazonS3FullAccess
-        - arn:aws:iam::aws:policy/AmazonSNSFullAccess
-    
+        - arn:aws:iam::aws:policy/AmazonCognitoPowerUser
+
     CognitoRoleAttachment:
       Type: AWS::Cognito::IdentityPoolRoleAttachment
       Properties:
@@ -45,6 +45,22 @@ Resources:
         Roles:
           unauthenticated: !GetAtt CognitoIdentityRole.Arn
     
+    CognitoUserPool:
+      Type: AWS::Cognito::UserPool
+      Properties:
+        UserPoolName: !Sub "${AWS::StackName}CognitoUserPool"
+        UsernameAttributes:
+         - email
+        AutoVerifiedAttributes:
+         - email
+    
+    CognitoUserPoolAppClient:
+      Type: AWS::Cognito::UserPoolClient
+      Properties:
+        ClientName: !Sub "${AWS::StackName}CognitoUserPoolAppClient"
+        GenerateSecret: false
+        UserPoolId: !Ref CognitoUserPool
+      
     S3Bucket:
       Type: AWS::S3::Bucket
       Properties:
@@ -247,3 +263,9 @@ Outputs:
           - DomainName
         - '/aws-sdk-2.336.0.min.js'
     Description: aws-sdk.js url
+    
+  CognitoUserPoolId:
+    Value: !Ref CognitoUserPool
+    
+  CognitoUserPoolAppClientId:
+    Value: !Ref CognitoUserPoolAppClient
