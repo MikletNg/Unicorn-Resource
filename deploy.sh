@@ -17,7 +17,6 @@ sleep 1
 S3Bucket=$(aws cloudformation describe-stacks --stack-name $FULL_STACK_NAME --query 'Stacks[0].Outputs[?OutputKey==`S3Bucket`].OutputValue' --output text --profile $AWS_PROFILE)
 aws s3 sync ./resources s3://$S3Bucket --profile $AWS_PROFILE
 aws s3 sync ./face s3://$S3Bucket/face --profile $AWS_PROFILE
-AWS_PROFILE=$AWS_PROFILE node ./function/app.js $CODENAME $S3Bucket
 echo
 echo "Now create ExcelLexBot..."
 EXCEL_LEX_BOT_SOURCE_BUCKET=$S3Bucket
@@ -30,3 +29,4 @@ aws cloudformation deploy \
 --region us-east-1 \
 --profile $AWS_PROFILE
 aws s3 sync ./excel s3://$EXCEL_LEX_BOT_EXCEL_BUCKET --profile $AWS_PROFILE
+AWS_PROFILE=$AWS_PROFILE node ./function/app.js $CODENAME
